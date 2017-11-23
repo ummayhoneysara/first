@@ -18,9 +18,12 @@ server.get('/', function (req,res) {
    res.send(docs);
     })
  })
-
-
-server.post('/1/Temp/', function(req,res){
+ server.post('/', function(req,res){
+    db.testnewclass.save(req.body);
+    console.log("We are Here to post first data");
+    res.json(req.body);
+})
+ server.post('/1/Temp/', function(req,res){
     db.testnewclass.save(req.body);
     console.log("We are Here to post temp");
     res.json(req.body);
@@ -35,6 +38,9 @@ server.post('/1/Sound/', function(req,res){
     console.log("We are Here to post sound");
     res.json(req.body);
 })
+
+
+
 server.get('/1/Temp/', function (req,res){res.send('here is the temp file')});
 server.get('/1/Light/', function (req,res){res.send('here is the light file')});
 server.get('/1/Sound/', function (req,res){res.send('here is the sound file')});
